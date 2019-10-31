@@ -57,6 +57,7 @@ class Movies extends Component {
             onItemSelect={this.handGenreSelect} 
           />
         </div>
+        
         <div className="col">
           <p>Showing {count} movies:</p>
           <table className="table">
