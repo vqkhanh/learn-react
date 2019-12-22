@@ -8,12 +8,17 @@ class loginForm extends Component {
         account : {
             username: '',
             password: ''
-        }
+        },
+        errors: {}
     }
 
     // componentDidMount(){
     //     this.username.current.focus()
     // }
+
+    validate = () => {
+      return {username: "Username is required."}
+    }
 
     handleChange = ({currentTarget: input}) => {
         const account = {...this.state.account}
@@ -24,10 +29,18 @@ class loginForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault()  
-        const username = this.username.current.value
+
+        const errors = this.validate()
+        this.setState({errors})
+        if(errors) return
+
+        // const username = this.username.current.value
+        // call the server
         console.log("summitted")
     }
     render() { 
+        const {account} = this.state
+
         return (
           <div>
             <h1></h1>
