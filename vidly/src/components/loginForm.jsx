@@ -14,10 +14,10 @@ class loginForm extends Component {
     //     this.username.current.focus()
     // }
 
-    handleChange = e => {
+    handleChange = ({currentTarget: input}) => {
         const account = {...this.state.account}
         // account.username = e.currentTarget.value
-      account[e.currentTarget.name] = e.currentTarget.value
+      account[input.name] = input.value
         this.setState({account})
     }
 
@@ -46,7 +46,7 @@ class loginForm extends Component {
                 <label htmlFor="password">Password</label>
                 <input
                   value={this.state.account.password}
-                  onChange={handleChange}
+                  onChange={this.handleChange}
                   name="password"
                   id="password"
                   type="text"
